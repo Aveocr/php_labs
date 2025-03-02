@@ -1,0 +1,31 @@
+<?php 
+    class Student {
+        public $name;
+        public $course;
+
+        // внутри метода
+        public function transferToNextCourse_1(){
+            if ($this->course + 1 <= 5)
+            $this->course += 1;
+        }
+
+        public function transferToNextCourse_2(){
+            if ($this->isCourseCorrect()){
+                $this->course += 1;
+            }
+        }
+
+        private function isCourseCorrect(){
+            return $this->course <= 5 ? true : false;
+
+        }
+    }
+    
+    $student = new Student;
+    $student->course = 4;
+    
+    echo $student->transferToNextCourse_1();
+    
+    echo $student->transferToNextCourse_2();
+    
+?>
