@@ -1,13 +1,11 @@
-# Используем официальный образ PHP
-FROM php:8.1-apache as base
+FROM php:8.2-apache
 
-# Устанавливаем необходимые расширения (если нужно)
-RUN docker-php-ext-install pdo pdo_mysql
+WORKDIR /var/www/html
 
-# Копируем ваш код в контейнер
-COPY ./ /var/www/html
+COPY . /var/www/html/
 
-# Устанавливаем рабочую директорию
-WORKDIR /usr/src/OOP
+EXPOSE 8080
 
-# Команда по умолчанию
+RUN sed -i 's/80/8080/g' /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf
+
+CMD ["apache2-foreground"]
