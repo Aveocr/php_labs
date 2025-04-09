@@ -27,6 +27,7 @@
 		'method2' 
 		=> 'getAge'];
 
-    foreach(array_keys($methods) as $method){
+    foreach(array_keys($methods) as $method) {
     	echo $user->{$methods[$method]}() . ' ';
+	}
 ?>

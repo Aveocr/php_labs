@@ -20,7 +20,7 @@
 	}
 
 
-    $number = new Arr;
+    $number = new Arr();
 	
     $number->add([2, 2, 2, 2, 5, 3, 2]);
     echo "AVG is " . $number->getAvg();
